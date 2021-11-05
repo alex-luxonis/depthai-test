@@ -23,7 +23,7 @@ dai::Pipeline getMainPipeline() {
     // if (!_tuningFilePath.empty()) {
     //     pipeline.setCameraTuningBlobPath(_tuningFilePath);
     // }
-    pipeline.setXlinkMaxPacketSize(0);
+    pipeline.setXLinkChunkSize(0);
 
     auto colorCamera = pipeline.create<dai::node::ColorCamera>();
     colorCamera->setBoardSocket(dai::CameraBoardSocket::RGB);
