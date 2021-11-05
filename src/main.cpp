@@ -66,7 +66,7 @@ bool resetDevice() {
 
     r = libusb_init(NULL);
     if (r) {
-        printf("libusb_init: %s\n", libusb_strerror(r));
+        printf("libusb_init: %s\n", libusb_strerror((libusb_error)r));
         return false;
     }
 
@@ -86,7 +86,7 @@ bool resetDevice() {
                                 1000    // timeout [ms]
     );
     if (r) {
-        printf("libusb_control_transfer: %d %s\n", r, libusb_strerror(r));
+        printf("libusb_control_transfer: %d %s\n", r, libusb_strerror((libusb_error)r));
     } else {
         printf("OK\n");
     }
